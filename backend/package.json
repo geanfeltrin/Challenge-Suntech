@@ -1,0 +1,10 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Gean Feltrin <geanfeltrin75@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "json-server --watch db.json"
+  }
+}
