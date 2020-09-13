@@ -10,7 +10,7 @@ const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
       flexGrow: 1,
-      marginBottom: theme.spacing(4),
+      marginBottom: theme.spacing(10),
     },
     homeIcon: {
       marginRight: theme.spacing(2),

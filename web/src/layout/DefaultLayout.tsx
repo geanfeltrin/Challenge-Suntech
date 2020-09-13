@@ -6,7 +6,7 @@ const DefaultLayout: React.FC = ({ children }) => {
   return (
     <>
       <TopBar />
-      <Container maxWidth="lg">
+      <Container maxWidth="md">
         <>{children}</>
       </Container>
     </>
