@@ -108,7 +108,7 @@ const CreateResidences: React.FC = () => {
   return (
     <Container>
       <div className="content-title">
-        <h1>Adicionar residências</h1>
+        <h1>Adicionar residência</h1>
         <small>
           Para adicionar uma residência preencha os campos corretamente, caso
           não conheça sua latitude e longitude clique no botão buscar

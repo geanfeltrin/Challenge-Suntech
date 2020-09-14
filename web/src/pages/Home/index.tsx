@@ -42,7 +42,7 @@ const Home: React.FC = () => {
       <div className="content-title">
         <h1>Mapa de residências</h1>
         <small>
-          Esse mapa é um mapa de calor informando o local da residência e a
+          Esse é um mapa de calor informando o local da residência e a
           quantidade de membros.
         </small>
       </div>
