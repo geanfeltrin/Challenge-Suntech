@@ -17,10 +17,12 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   label?: string;
   message?: string;
   loading?: boolean;
+  id?: string;
 }
 
 const Input: React.FC<InputProps> = ({
   label,
+  id,
   message,
   loading,
   name,
@@ -57,7 +59,7 @@ const Input: React.FC<InputProps> = ({
   }, [fieldName, registerField]);
   return (
     <Container>
-      {label && <label>{label}</label>}
+      {label && <label htmlFor={id}>{label}</label>}
       <ContentInput
         isErrored={!!error}
         isFilled={isFilled}
@@ -65,6 +67,7 @@ const Input: React.FC<InputProps> = ({
       >
         {Icon && <Icon />}
         <input
+          id={id}
           ref={inputRef}
           onFocus={handleInputFocus}
           onBlur={handleInputBlur}

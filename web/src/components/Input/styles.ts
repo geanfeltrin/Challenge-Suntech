@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-
+import { opacify } from 'polished';
 import Tooltip from '../Tooltip';
 
 interface ContentProps {
@@ -12,7 +12,19 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  label span {
+  label {
+    display: block;
+    font-family: Source Sans Pro;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 18px;
+    margin-right: 10px;
+    color: #232425;
+    margin-bottom: 8px;
+  }
+
+  span {
     display: block;
     font-family: Source Sans Pro;
     font-style: normal;
@@ -64,9 +76,19 @@ export const ContentInput = styled.div<ContentProps>`
     background: transparent;
     border: 0;
     color: #232425;
+    font-family: Source Sans Pro;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 18px;
 
-    &::placeholder {
-      color: #232425;
+    &:placeholder {
+      font-family: Source Sans Pro;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 16px;
+      line-height: 18px;
+      color: ${opacify(1, '#232425')};
     }
   }
 
