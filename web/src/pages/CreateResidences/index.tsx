@@ -115,69 +115,67 @@ const CreateResidences: React.FC = () => {
           localização, ele aparecerá ao inserir seu CEP.
         </small>
       </div>
-      <div className="content-form">
-        <Form ref={formRef} onSubmit={handleSubmit}>
-          <div className="content-cep">
-            <Input
-              id="zip_code"
-              label="Insira seu CEP"
-              placeholder="Digite apenas os números ex. 00000000"
-              maxLength={8}
-              type="number"
-              name="zip_code"
-              value={cep}
-              onChange={e => setCep(e.target.value)}
-              loading={loading}
-              message={message.status === false ? message.message : ''}
-            />
-            {cep && message.status === false && (
-              <Button
-                type="button"
-                onClick={handleSearchLocation}
-                disabled={cep.length < 8}
-              >
-                Buscar localização
-              </Button>
-            )}
-          </div>
 
+      <Form ref={formRef} onSubmit={handleSubmit}>
+        <div className="content-cep">
           <Input
-            id="house_number"
-            label="Número da sua residência"
+            id="zip_code"
+            label="Insira seu CEP"
+            placeholder="Digite apenas os números ex. 00000000"
+            maxLength={8}
             type="number"
-            name="house_number"
-            placeholder="Exemplo: 100"
+            name="zip_code"
+            value={cep}
+            onChange={e => setCep(e.target.value)}
+            loading={loading}
+            message={message.status === false ? message.message : ''}
           />
-          <Input
-            id="residents"
-            label="Quantidade de pessoas na sua residência"
-            type="number"
-            name="residents"
-            placeholder="Exemplo: 1"
-          />
-          <Input
-            id="lat"
-            label="Latitude"
-            type="number"
-            name="lat"
-            value={lat}
-            onChange={e => setLat(e.target.value)}
-            placeholder="Exemplo: 0.00"
-          />
-          <Input
-            id="lng"
-            label="Longitude"
-            type="number"
-            name="lng"
-            value={lng}
-            onChange={e => setLng(e.target.value)}
-            placeholder="Exemplo: 0.00"
-          />
+          {cep && message.status === false && (
+            <Button
+              type="button"
+              onClick={handleSearchLocation}
+              disabled={cep.length < 8}
+            >
+              Buscar localização
+            </Button>
+          )}
+        </div>
 
-          <Button type="submit">Adicionar residência</Button>
-        </Form>
-        <img src={FillFormImg} alt="preencha o formulário" />
-      </div>
+        <Input
+          id="house_number"
+          label="Número da sua residência"
+          type="number"
+          name="house_number"
+          placeholder="Exemplo: 100"
+        />
+        <Input
+          id="residents"
+          label="Quantidade de pessoas na sua residência"
+          type="number"
+          name="residents"
+          placeholder="Exemplo: 1"
+        />
+        <Input
+          id="lat"
+          label="Latitude"
+          type="number"
+          name="lat"
+          value={lat}
+          onChange={e => setLat(e.target.value)}
+          placeholder="Exemplo: 0.00"
+        />
+        <Input
+          id="lng"
+          label="Longitude"
+          type="number"
+          name="lng"
+          value={lng}
+          onChange={e => setLng(e.target.value)}
+          placeholder="Exemplo: 0.00"
+        />
+
+        <Button type="submit">Adicionar residência</Button>
+      </Form>
     </Container>
   );
 };

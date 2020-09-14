@@ -35,7 +35,7 @@ export const Container = styled.div`
       font-weight: normal;
       font-size: 12px;
       line-height: 15px;
-      text-align: center;
+      text-align: justify;
       margin-top: 8px;
     }
   }

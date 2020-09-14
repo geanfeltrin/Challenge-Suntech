@@ -5,6 +5,7 @@ export const Container = styled.div`
   flex-direction: column;
   align-items: stretch;
   width: 100%;
+  max-width: 650px;
   background-color: #fff;
   border-radius: 6px;
   padding: 24px;
@@ -33,43 +34,32 @@ export const Container = styled.div`
       font-weight: normal;
       font-size: 12px;
       line-height: 15px;
-      text-align: center;
+      text-align: justify;
       margin-top: 8px;
     }
   }
-  div.content-form {
+
+  form {
+    flex: 1;
     display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
+    width: 100%;
+    flex-direction: column;
+    max-width: 600px;
+    margin-top: 30px;
 
-    img {
-      width: 100%;
-      max-width: 400px;
-    }
-
-    form {
-      flex: 1;
+    .content-cep {
       display: flex;
+      align-items: flex-start;
       width: 100%;
-      flex-direction: column;
-      max-width: 600px;
-      margin-top: 30px;
+      margin-bottom: 16px;
 
-      .content-cep {
-        display: flex;
-        align-items: flex-start;
+      > div {
         width: 100%;
-        margin-bottom: 16px;
-
-        > div {
-          width: 100%;
-        }
-        button {
-          width: 110px;
-          margin-top: 18px;
-          margin-left: 10px;
-        }
+      }
+      button {
+        width: 110px;
+        margin-top: 18px;
+        margin-left: 10px;
       }
     }
   }
