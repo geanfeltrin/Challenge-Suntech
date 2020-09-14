@@ -1,30 +1,17 @@
 import React from 'react';
-import Button from '@material-ui/core/Button';
-import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
-import Grid from '@material-ui/core/Grid';
-import Typography from '@material-ui/core/Typography';
-
-const useStyles = makeStyles((theme: Theme) =>
-  createStyles({
-    contentHeader: {
-      flexGrow: 1,
-      marginBottom: theme.spacing(4),
-      justifyContent: 'space-between',
-    },
-  }),
-);
+import { Container } from './styles';
 
 const Home: React.FC = () => {
-  const classes = useStyles();
   return (
-    <Grid container spacing={4} className={classes.contentHeader}>
-      <Typography variant="h4" component="h1">
-        Mapa de residências
-      </Typography>
-      <Button color="primary" variant="contained" onClick={() => {}}>
-        Adicionar uma residência
-      </Button>
-    </Grid>
+    <Container>
+      <div className="content-title">
+        <h1>Mapa de residências</h1>
+        <small>
+          Esse mapa é um mapa de calor informando o local da residência e a
+          quantidade de membros.
+        </small>
+      </div>
+    </Container>
   );
 };
 
