@@ -5,8 +5,6 @@ export const Container = styled.div`
   flex-direction: column;
   align-items: stretch;
   width: 100%;
-  height: 100%;
-  max-height: 650px;
   background-color: #fff;
   border-radius: 6px;
   padding: 24px;
@@ -47,7 +45,6 @@ export const Container = styled.div`
 
     img {
       width: 100%;
-      height: 100%;
       max-width: 400px;
     }
 
@@ -57,7 +54,7 @@ export const Container = styled.div`
       width: 100%;
       flex-direction: column;
       max-width: 600px;
-      margin: 30px 0;
+      margin-top: 30px;
 
       .content-cep {
         display: flex;
