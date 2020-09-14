@@ -14,6 +14,7 @@ export const Container = styled.div`
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    margin-bottom: 16px;
     h1 {
       font-family: Source Sans Pro;
       font-style: normal;
