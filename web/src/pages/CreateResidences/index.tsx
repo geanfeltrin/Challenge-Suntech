@@ -10,7 +10,6 @@ import { toast } from 'react-toastify';
 import { useHistory } from 'react-router-dom';
 import Input from '../../components/Input';
 import Button from '../../components/Button';
-import FillFormImg from '../../assets/fill_forms.svg';
 import { Container } from './styles';
 import api from '../../services/api';
 import getValidationErrors from '../../utils/getValidationErrors';
