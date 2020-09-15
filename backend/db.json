@@ -5,24 +5,24 @@
       "zip_code": "57035-280",
       "residents": 10,
       "house_number": 100,
-      "lat": -9.947209,
-      "lng": -35.683995
+      "lat": "-9.947209",
+      "lng": "-35.683995"
     },
     {
       "id": 4,
       "zip_code": "57035-280",
       "residents": 15,
       "house_number": 100,
-      "lat": -14.98724,
-      "lng": -39.026069
+      "lat": "-14.98724",
+      "lng": "-39.026069"
     },
     {
       "id": 3,
       "zip_code": "57035-280",
       "house_number": 100,
       "residents": 10,
-      "lat": -15.199386,
-      "lng": -47.69112
+      "lat": "-15.199386",
+      "lng": "-47.69112"
     },
     {
       "id": "KjymlVWN2",
@@ -36,8 +36,32 @@
       "id": "ajH9I8uvt",
       "zip_code": "57035280",
       "residents": "15",
+      "lat": "-18.10",
+      "lng": "-44.38",
+      "house_number": "100"
+    },
+    {
+      "id": "ajH9I8uvt",
+      "zip_code": "57035280",
+      "residents": "20",
       "lat": "-9.653725",
       "lng": "-35.7063869",
+      "house_number": "100"
+    },
+    {
+      "id": "ajH9I8uvt",
+      "zip_code": "57035280",
+      "residents": "1",
+      "lat": "-19.19",
+      "lng": "-40.34",
+      "house_number": "100"
+    },
+    {
+      "id": "ajH9I8uvt",
+      "zip_code": "57035280",
+      "residents": "5",
+      "lat": "-16.64",
+      "lng": "-49.31",
       "house_number": "100"
     }
   ]
