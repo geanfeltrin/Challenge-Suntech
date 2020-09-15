@@ -36,7 +36,7 @@ const Home: React.FC = () => {
       setLoading(false);
     });
   }, []);
-console.log(data)
+
   return (
     <Container>
       <div className="content-title">
