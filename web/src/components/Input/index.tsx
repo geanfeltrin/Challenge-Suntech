@@ -8,7 +8,7 @@ import React, {
 import { IconBaseProps } from 'react-icons';
 import { FiAlertCircle } from 'react-icons/fi';
 import { useField } from '@unform/core';
-import CircularProgress from '@material-ui/core/CircularProgress';
+import LinearProgressBar from '@material-ui/core/LinearProgress';
 import { ContentInput, Container, Error } from './styles';
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
@@ -73,13 +73,14 @@ const Input: React.FC<InputProps> = ({
           onBlur={handleInputBlur}
           {...rest}
         />
-        {loading && <CircularProgress color="primary" />}
+
         {error && (
           <Error title={error}>
             <FiAlertCircle color="#c53030" size="20" />
           </Error>
         )}
       </ContentInput>
+      {loading && <LinearProgressBar color="primary" />}
       {message && <span>{message}</span>}
     </Container>
   );
