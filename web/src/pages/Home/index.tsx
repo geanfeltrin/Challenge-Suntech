@@ -21,9 +21,9 @@ const Home: React.FC = () => {
     api.get('/residences').then(response => {
       const dataApi: place[] = response.data.map((item: place) => {
         return {
-          lat: item.lat,
-          lng: item.lng,
-          weight: item.residents,
+          lat: Number(item.lat),
+          lng: Number(item.lng),
+          weight: Number(item.residents),
         };
       });
       setData({
@@ -36,7 +36,7 @@ const Home: React.FC = () => {
       setLoading(false);
     });
   }, []);
-
+console.log(data)
   return (
     <Container>
       <div className="content-title">
