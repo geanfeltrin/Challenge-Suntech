@@ -29,7 +29,7 @@ const CreateResidences: React.FC = () => {
   const [lat, setLat] = useState('');
   const [lng, setLng] = useState('');
   const [loading, setLoading] = useState(false);
-  const [message, setMessage] = useState({ message: '', status: false });
+  const [message, setMessage] = useState('');
   const formRef = useRef<FormHandles>(null);
 
   const handleSubmit = useCallback(
@@ -76,14 +76,12 @@ const CreateResidences: React.FC = () => {
     [history],
   );
 
-  const handleSearchLocation = async (): Promise<void> => {
+  const handleSearchLocation = useCallback(async (): Promise<void> => {
     try {
       setLoading(true);
-      setMessage({
-        message:
-          'Estamos verificando o cep e buscando a latitude e longitude, isso pode levar alguns minutos',
-        status: false,
-      });
+      setMessage(
+        'Estamos verificando o cep e buscando a latitude e longitude, isso pode levar alguns minutos',
+      );
       const checkCep = await cepPromise(cep);
       const key = process.env.REACT_APP_KEY;
       const getLocation = await axios.get(
@@ -93,16 +91,15 @@ const CreateResidences: React.FC = () => {
 
       setLat(data.results[0].geometry.location.lat);
       setLng(data.results[0].geometry.location.lng);
-      setMessage({ message: 'ok', status: true });
+      setMessage('Localização carregada com sucesso');
       setLoading(false);
     } catch (error) {
-      setMessage({
-        message: 'Houve um erro o CEP pode estar incorreto',
-        status: false,
-      });
+      setMessage(
+        'Houve um erro ao buscar a localização CEP pode estar incorreto',
+      );
       setLoading(false);
     }
-  };
+  }, [cep]);
 
   return (
     <Container>
@@ -120,24 +117,23 @@ const CreateResidences: React.FC = () => {
           <Input
             id="zip_code"
             label="Insira seu CEP"
-            placeholder="Digite apenas os números ex. 00000000"
-            maxLength={8}
-            type="number"
+            placeholder="Digite o cep Ex. 00000-000"
+            maxLength={9}
             name="zip_code"
             value={cep}
-            onChange={e => setCep(e.target.value)}
+            onChange={e => {
+              setCep(e.target.value);
+            }}
             loading={loading}
-            message={message.status === false ? message.message : ''}
+            message={message}
           />
-          {cep && message.status === false && (
-            <Button
-              type="button"
-              onClick={handleSearchLocation}
-              disabled={cep.length < 8}
-            >
-              Buscar localização
-            </Button>
-          )}
+          <Button
+            type="button"
+            onClick={handleSearchLocation}
+            disabled={cep.length < 8}
+          >
+            Buscar localização
+          </Button>
         </div>
 
         <Input
