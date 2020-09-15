@@ -47,4 +47,11 @@ export const Container = styled.div`
     border-left: 2px solid ${shade(0.2, '#3670e3')};
     cursor: pointer;
   }
+
+  @media (max-width: 800px) {
+    margin-right: 0px;
+    margin-bottom: 16px;
+    max-width: 100%;
+    flex-wrap: nowrap;
+  }
 `;
