@@ -3,16 +3,16 @@ import { shade } from 'polished';
 
 export const Container = styled.div`
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: flex-start;
   align-items: flex-start;
+  flex-direction: column;
   width: 100%;
   max-width: 250px;
-  height: 50px;
-  border-left: 1px solid #6c9dfe;
-  padding-left: 10px;
   margin-right: 16px;
-  margin-top: 25px;
+  background-color: #fff;
+  padding: 16px;
+  height: max-content;
 
   a {
     display: flex;
@@ -22,25 +22,29 @@ export const Container = styled.div`
     cursor: pointer;
     transition: color 0.2s;
     font-style: normal;
-    font-weight: normal;
+    font-weight: 600;
     font-size: 18px;
     line-height: 15px;
-
+    padding-left: 10px;
+    border-left: 0.8px dashed #6c9dfe;
     &:hover {
       color: ${shade(0.2, '#3670e3')};
     }
 
-    &:active {
+    :active {
       color: #000000;
     }
-
-    .selected {
-      color: #000000;
-      cursor: pointer;
+    &:first-child {
+      padding-bottom: 10px;
     }
 
     & + a {
-      margin-top: 16px;
+      padding: 10px;
     }
+  }
+  a.selected {
+    color: ${shade(0.2, '#3670e3')};
+    border-left: 2px solid ${shade(0.2, '#3670e3')};
+    cursor: pointer;
   }
 `;

@@ -5,12 +5,14 @@ import { Container } from './styles';
 const SideBar: React.FC = () => {
   return (
     <Container>
-      <NavLink to="/" activeClassName="selected">
-        Vizualizar map
-      </NavLink>
-      <NavLink to="/create-residences" activeClassName="selected">
-        Adicionar uma residência
-      </NavLink>
+      <section>
+        <NavLink to="/" activeClassName="selected" exact>
+          Vizualizar map
+        </NavLink>
+        <NavLink to="/create-residences" activeClassName="selected" exact>
+          Adicionar uma residência
+        </NavLink>
+      </section>
     </Container>
   );
 };
