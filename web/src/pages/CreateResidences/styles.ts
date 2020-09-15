@@ -71,7 +71,7 @@ export const Container = styled.div`
       }
       button {
         width: 110px;
-        margin-top: 18px;
+        margin-top: 24px;
         margin-left: 10px;
       }
     }
