@@ -1,4 +1,15 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
+
+const appearFromRight = keyframes`
+  from {
+    opacity: 0;
+    transform: translateX(50px)
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0)
+  }
+`;
 
 export const Container = styled.div`
   display: flex;
@@ -9,6 +20,8 @@ export const Container = styled.div`
   background-color: #fff;
   border-radius: 6px;
   padding: 24px;
+
+  animation: ${appearFromRight} 1s;
 
   div.content-title {
     display: flex;
