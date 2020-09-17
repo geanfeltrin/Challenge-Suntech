@@ -5,6 +5,6 @@
   "author": "Gean Feltrin <geanfeltrin75@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "start": "json-server --watch db.json"
+    "start": "json-server --watch -p 3333 db.json"
   }
 }
