@@ -61,6 +61,9 @@ $ cd Challenge-Suntech
 # Inicialmente acesse a pasta backend
 $ cd backend
 
+#Instale o json-server
+$ npm install -g json-server
+
 # Inicie o json-server
 $ yarn start or npm run start
 
