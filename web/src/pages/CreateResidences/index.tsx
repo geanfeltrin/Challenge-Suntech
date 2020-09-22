@@ -112,6 +112,12 @@ const CreateResidences: React.FC = () => {
     }
   }, [cep, setLatAndLng]);
 
+  const formatZipCode = useCallback((zip_code: string) => {
+    const value = zip_code.replace(/(\d{5})(\d{3})/, '$1-$2');
+
+    return value;
+  }, []);
+
   return (
     <Container>
       <div className="content-title">
@@ -133,7 +139,7 @@ const CreateResidences: React.FC = () => {
             name="zip_code"
             value={cep}
             onChange={e => {
-              setCep(e.target.value);
+              setCep(formatZipCode(e.target.value));
             }}
             loading={loading}
             message={message}
