@@ -26,8 +26,6 @@ interface dataProps {
 const CreateResidences: React.FC = () => {
   const history = useHistory();
   const [cep, setCep] = useState('');
-  const [lat, setLat] = useState('');
-  const [lng, setLng] = useState('');
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState('');
   const formRef = useRef<FormHandles>(null);
@@ -53,6 +51,7 @@ const CreateResidences: React.FC = () => {
             .required('A longitude é obrigatório'),
         });
 
+        await cepPromise(data.zip_code);
         await schema.validate(data, {
           abortEarly: false,
         });
@@ -69,12 +68,21 @@ const CreateResidences: React.FC = () => {
         toast.success('Residência cadastrada com sucesso!!');
         history.push('/');
       } catch (error) {
-        const errors = getValidationErrors(error);
-        formRef.current?.setErrors(errors);
+        if (error instanceof Yup.ValidationError) {
+          const errors = getValidationErrors(error);
+          formRef.current?.setErrors(errors);
+        } else {
+          formRef.current?.setFieldError('zip_code', 'O cep é inválido');
+        }
       }
     },
     [history],
   );
+
+  const setLatAndLng = useCallback((lat: number, lng: number) => {
+    formRef.current?.setFieldValue('lat', lat);
+    formRef.current?.setFieldValue('lng', lng);
+  }, []);
 
   const handleSearchLocation = useCallback(async (): Promise<void> => {
     try {
@@ -89,8 +97,11 @@ const CreateResidences: React.FC = () => {
       );
       const { data } = getLocation;
 
-      setLat(data.results[0].geometry.location.lat);
-      setLng(data.results[0].geometry.location.lng);
+      setLatAndLng(
+        data.results[0].geometry.location.lat,
+        data.results[0].geometry.location.lng,
+      );
+
       setMessage('Localização carregada com sucesso');
       setLoading(false);
     } catch (error) {
@@ -99,7 +110,7 @@ const CreateResidences: React.FC = () => {
       );
       setLoading(false);
     }
-  }, [cep]);
+  }, [cep, setLatAndLng]);
 
   return (
     <Container>
@@ -155,8 +166,6 @@ const CreateResidences: React.FC = () => {
           label="Latitude"
           type="number"
           name="lat"
-          value={lat}
-          onChange={e => setLat(e.target.value)}
           placeholder="Exemplo: 0.00"
         />
         <Input
@@ -164,8 +173,6 @@ const CreateResidences: React.FC = () => {
           label="Longitude"
           type="number"
           name="lng"
-          value={lng}
-          onChange={e => setLng(e.target.value)}
           placeholder="Exemplo: 0.00"
         />
 
