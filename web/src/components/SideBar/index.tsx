@@ -6,10 +6,10 @@ const SideBar: React.FC = () => {
   return (
     <Container>
       <section>
-        <NavLink to="/" activeClassName="selected" exact>
+        <NavLink aria-label="Vizualizar map" to="/" activeClassName="selected" exact>
           Vizualizar map
         </NavLink>
-        <NavLink to="/create-residences" activeClassName="selected" exact>
+        <NavLink aria-label="Adicionar uma residência" to="/create-residences" activeClassName="selected" exact>
           Adicionar uma residência
         </NavLink>
       </section>

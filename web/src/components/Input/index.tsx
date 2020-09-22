@@ -53,7 +53,7 @@ const Input: React.FC<InputProps> = ({
   }, [fieldName, registerField]);
   return (
     <Container>
-      {label && <label htmlFor={id}>{label}</label>}
+      {label && <label aria-label={label} htmlFor={id}>{label}</label>}
       <ContentInput
         isErrored={!!error}
         isFilled={isFilled}
